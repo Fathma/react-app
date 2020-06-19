@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PieChart from './PieChart'
+import PieChart from './PieChart';
+import BarChart from './BarChart'
 
 class SalesCharts extends Component {
     render() {
@@ -19,8 +20,27 @@ class SalesCharts extends Component {
             sales.push({ label: prop, y: sales_holder[prop] });
         }
 
+
+        var bar_holder = {};
+
+        this.props.data.forEach(function (d) {
+            if (bar_holder.hasOwnProperty(d.date)) {
+                bar_holder[d.date] = bar_holder[d.date] + d.order_quantity;
+            } else {
+                bar_holder[d.date] = d.order_quantity;
+            }
+        });
+
+        var bar_sales = [];
+
+        for (var prop in bar_holder) {
+
+            bar_sales.push({ label: prop, y: bar_holder[prop] });
+        }
         return (
             <div>
+                <BarChart data={bar_sales} title='Product Wise Sales' yTitle='Quantity of Product' xTitle='Dates' />
+
                 <PieChart data={sales} title='Product Wise Sales' />
 
             </div>

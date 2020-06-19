@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import CanvasJSReact from './canvas/canvasjs.react';
-import axios from 'axios';
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 class PieChart extends Component {
