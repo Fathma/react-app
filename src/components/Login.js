@@ -2,8 +2,6 @@ import React from 'react'
 import { Component } from 'react'
 import axios from 'axios'
 
-import logo from './logo.svg';
-
 import { Form, Button, Container, Image } from 'react-bootstrap'
 
 class Login extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, NavDropdown, Nav, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 class Navbar_ extends Component {
@@ -20,7 +20,7 @@ class Navbar_ extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home" active>Dashboard</Nav.Link>
+                        <Nav.Link as={Link} to="/home/dashboard" >Dashboard</Nav.Link>
                         <Nav.Link as={Link} to="/home/itemList">Item List</Nav.Link>
                     </Nav>
                     <Nav>

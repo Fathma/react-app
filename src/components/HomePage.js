@@ -4,6 +4,7 @@ import Navbar_ from './layouts/Navbar_'
 import ItemList from './ItemList'
 import { Container } from 'react-bootstrap'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Dashboard from './Dashboard'
 
 
 class HomePage extends Component {
@@ -16,9 +17,9 @@ class HomePage extends Component {
             <div>
                 <Navbar_ />
                 {/* <Sidebar_ /> */}
-                <Container>
-                    <Route path="/home/itemList" component={ItemList} />
-                </Container>
+                <Route path="/home/itemList" component={ItemList} />
+                <Route path="/home/dashboard" component={Dashboard} />
+
             </div>
         );
     }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'react-bootstrap';
+import { Container } from 'react-bootstrap'
+
 
 
 class ItemList extends Component {
@@ -21,7 +23,7 @@ class ItemList extends Component {
     }
     render() {
         return (
-            <div>
+            <Container>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -46,7 +48,7 @@ class ItemList extends Component {
                         ))}
                     </tbody>
                 </Table>
-            </div>
+            </Container>
         );
     }
 }
