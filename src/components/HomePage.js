@@ -16,7 +16,6 @@ class HomePage extends Component {
         return (
             <div>
                 <Navbar_ />
-
                 <Route path="/home/itemList" component={ItemList} />
                 <Route path="/home/dashboard" component={Dashboard} />
 

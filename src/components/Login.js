@@ -2,7 +2,7 @@ import React from 'react'
 import { Component } from 'react'
 import axios from 'axios'
 
-import { Form, Button, Container, Image } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
 
 class Login extends Component {
     constructor(props) {

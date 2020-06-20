@@ -10,7 +10,6 @@ import { Container } from 'react-bootstrap'
 // import './App.css';
 
 class App extends Component {
-
   render() {
     return (
       <div>
@@ -19,8 +18,6 @@ class App extends Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={Login} />
             <Route path="/Home" component={HomePage} />
-            {/* <Route path="/Home/itemlist" exact component={ItemList} /> */}
-            {/* <Route path="/Home" exact component={HomePage} /> */}
           </Switch>
         </BrowserRouter>
       </div>

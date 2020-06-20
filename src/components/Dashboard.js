@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, ListGroup, Nav } from 'react-bootstrap';
+import { Row, Col, Nav } from 'react-bootstrap';
 import { Route } from 'react-router-dom';
 import CustomerCharts from './CustomerCharts';
 import SalesCharts from './SalesCharts';
@@ -25,6 +25,7 @@ class Dashboard extends Component {
         return (
             <div style={{ height: '100vh' }}>
                 <Row md={12} style={{ height: '100%' }}>
+
                     <Col style={{ backgroundColor: '#20232a', height: '100%' }}>
                         <Nav defaultActiveKey="/home" className="flex-column" >
                             <Nav.Link as={Link} to="/home/dashboard/sales" style={{ textAlign: 'center', color: '#dadce0' }} href="/home">Sales</Nav.Link>

@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 
 import { Pie } from 'react-chartjs-2'
@@ -33,7 +32,6 @@ class PieChart extends Component {
                         datasets: this.state.datasets
                     }}
                     height='75%'
-
                 />
 
 

@@ -19,6 +19,7 @@ class ItemList extends Component {
     }
 
     render() {
+
         const columns = [{
             dataField: 'date',
             text: 'Date',

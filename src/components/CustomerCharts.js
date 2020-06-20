@@ -16,9 +16,9 @@ class CustomerCharts extends Component {
 
         var cus_labels_pie = []
         var cus_data_pie = []
-        for (var prop in customer_holder) {
-            cus_labels_pie.push(prop)
-            cus_data_pie.push(customer_holder[prop])
+        for (var work_area in customer_holder) {
+            cus_labels_pie.push(work_area)
+            cus_data_pie.push(customer_holder[work_area])
         }
 
         // manipulating data for bar chart
@@ -33,16 +33,15 @@ class CustomerCharts extends Component {
                 bar_holder[d.date] = 1;
             }
         });
-        console.log(bar_holder)
 
         var bar_date = []
         var bar_customer_number = []
 
 
-        for (var prop in bar_holder) {
-            if (new Date(prop).getMonth() === new Date().getMonth()) {
-                bar_date.push(prop)
-                bar_customer_number.push(bar_holder[prop])
+        for (var date in bar_holder) {
+            if (new Date(date).getMonth() === new Date().getMonth()) {
+                bar_date.push(date)
+                bar_customer_number.push(bar_holder[date])
             }
         }
 

@@ -20,9 +20,9 @@ class SalesCharts extends Component {
         var sales_label_pie = []
         var sales_data_pie = []
 
-        for (var prop in sales_holder) {
-            sales_label_pie.push(prop)
-            sales_data_pie.push(sales_holder[prop])
+        for (var product in sales_holder) {
+            sales_label_pie.push(product)
+            sales_data_pie.push(sales_holder[product])
         }
 
 
@@ -41,14 +41,12 @@ class SalesCharts extends Component {
             }
         });
 
-        var bar_sales = [];
         var bar_date = []
         var bar_customer_number = []
-        for (var prop in bar_holder) {
-            if (new Date(prop).getMonth() === new Date().getMonth()) {
-                bar_date.push(prop)
-                bar_customer_number.push(bar_holder[prop])
-                bar_sales.push({ label: prop, y: bar_holder[prop] });
+        for (var date in bar_holder) {
+            if (new Date(date).getMonth() === new Date().getMonth()) {
+                bar_date.push(date)
+                bar_customer_number.push(bar_holder[date])
             }
         }
         return (
