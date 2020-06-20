@@ -26,13 +26,17 @@ class Login extends Component {
         axios.post('http://frontend.interview.dingi.work/user/login/', { username: this.state.username, password: this.state.password })
             .then(res => {
                 localStorage.setItem('jwt', res.data.jwt_token)
-                this.props.history.push('/home')
+                this.props.history.push('/home/dashboard/sales')
             })
+            .catch(err => console.log(err))
+
     }
 
     render() {
         return (
             < Container className='well' style={{ width: '30%', paddingTop: '100px' }}>
+
+                <h1 className="text-center">Logo</h1>
                 <Form onSubmit={e => this.submit(e)}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
@@ -43,10 +47,7 @@ class Login extends Component {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type='password' name='password' onChange={e => this.change(e)} placeholder="Password" />
                     </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Check me out" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button size="lg" block variant="dark" type="submit">
                         Submit
                     </Button>
                 </Form>

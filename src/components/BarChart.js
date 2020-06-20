@@ -1,47 +1,57 @@
 import React, { Component } from 'react';
-import CanvasJSReact from './canvas/canvasjs.react';
-var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import { Bar } from 'react-chartjs-2'
 
 class BarChart extends Component {
-    render() {
-        const options = {
-            animationEnabled: true,
-            theme: "light2",
-            title: {
-                text: this.props.title
-            },
-            axisX: {
-                title: this.props.xTitle,
-                reversed: true,
+    constructor(props) {
+        super(props)
+        this.state = {
+            chartData: {
+                labels: this.props.labels,
+                datasets: [
+                    {
+                        label: this.props.label,
+                        data: this.props.data,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)',
+                            'rgba(255, 159, 64, 0.6)',
+                            'rgba(255, 99, 132, 0.6)'
+                        ]
 
-            },
-            axisY: {
-                title: this.props.yTitle,
-                labelFormatter: this.addSymbols
+                    }
+                ]
+            }
 
-            },
-            data: [{
-                type: "bar",
-                dataPoints: this.props.data
-            }]
         }
+
+    }
+
+    render() {
         return (
-            <div>
-                <CanvasJSChart options={options}
-                /* onRef={ref => this.chart = ref} */
+            <div className='chart' >
+                <h3 className="text-center">{this.props.title}</h3>
+
+                <Bar
+                    data={this.state.chartData}
+                    Options={{
+                        title: {
+                            display: true,
+                            text: 'title',
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: true,
+                            position: 'right'
+                        }
+                    }}
+                    height='75%'
+
                 />
-                {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
             </div>
         );
-    }
-    addSymbols(e) {
-        var suffixes = ["", "K", "M", "B"];
-        var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
-        if (order > suffixes.length - 1)
-            order = suffixes.length - 1;
-        var suffix = suffixes[order];
-        return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
     }
 }
 

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import PieChart from './PieChart'
 import BarChart from './BarChart'
 class CustomerCharts extends Component {
-    render() {
 
+    render() {
+        // manipulating data for pie chart
         var customer_holder = {};
         this.props.data.forEach(function (d) {
             if (customer_holder.hasOwnProperty(d.customer_work_area)) {
@@ -13,31 +14,42 @@ class CustomerCharts extends Component {
             }
         });
 
-        var customer = [];
-
+        var cus_labels_pie = []
+        var cus_data_pie = []
         for (var prop in customer_holder) {
-            customer.push({ label: prop, y: customer_holder[prop] });
+            cus_labels_pie.push(prop)
+            cus_data_pie.push(customer_holder[prop])
         }
 
+        // manipulating data for bar chart
         var bar_holder = {};
         this.props.data.forEach(function (d) {
+
             if (bar_holder.hasOwnProperty(d.date)) {
-                bar_holder[d.date] = bar_holder[d.date] + 1;
+                if (new Date(d.date).getMonth() === new Date().getMonth()) {
+                    bar_holder[d.date] = bar_holder[d.date] + 1;
+                }
             } else {
                 bar_holder[d.date] = 1;
             }
         });
+        console.log(bar_holder)
 
-        var bar_customer = [];
+        var bar_date = []
+        var bar_customer_number = []
+
 
         for (var prop in bar_holder) {
-            bar_customer.push({ label: prop, y: bar_holder[prop] });
+            if (new Date(prop).getMonth() === new Date().getMonth()) {
+                bar_date.push(prop)
+                bar_customer_number.push(bar_holder[prop])
+            }
         }
 
         return (
             <div>
-                <BarChart data={bar_customer} title='District wise customer' yTitle='District Count' xTitle='Dates' />
-                <PieChart data={customer} title='Area Wise Customer' />
+                <BarChart labels={bar_date} data={bar_customer_number} title='District Wise Customer Counts' label='Districts' />
+                <PieChart labels={cus_labels_pie} data={cus_data_pie} title='Area Wise Customer' />
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavDropdown, Nav, Form, Button } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -16,7 +16,7 @@ class Navbar_ extends Component {
     render() {
         return (
             <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#home">Logo</Navbar.Brand>
+                <Navbar.Brand href="#home"><b>Logo</b></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

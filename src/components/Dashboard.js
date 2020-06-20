@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Col, ListGroup, Nav } from 'react-bootstrap';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import CustomerCharts from './CustomerCharts';
 import SalesCharts from './SalesCharts';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-
-
 
 
 class Dashboard extends Component {
@@ -18,11 +16,8 @@ class Dashboard extends Component {
         if (!jwt) window.location.href = '/login'
 
         axios.get('http://frontend.interview.dingi.work/user/data/', { headers: { Authorization: `JWT ${jwt}` } })
-            .then(res => {
-
-                this.setState({ data: res.data })
-
-            })
+            .then(res => this.setState({ data: res.data }))
+            .catch(err => console.log(err))
     }
 
     render() {
