@@ -1,8 +1,8 @@
 import React from 'react'
 import { Component } from 'react'
-import axios from 'axios'
-
+import { connect } from "react-redux"
 import { Form, Button, Container } from 'react-bootstrap'
+import { userLogin } from '../actions/currentUserAction'
 
 class Login extends Component {
     constructor(props) {
@@ -22,14 +22,8 @@ class Login extends Component {
 
     submit = (e) => {
         e.preventDefault()
-
-        axios.post('http://frontend.interview.dingi.work/user/login/', { username: this.state.username, password: this.state.password })
-            .then(res => {
-                localStorage.setItem('jwt', res.data.jwt_token)
-                this.props.history.push('/home/dashboard/sales')
-            })
-            .catch(err => console.log(err))
-
+        let formData = { email: this.state.username, password: this.state.password }
+        this.props.userLogin(formData)
     }
 
     render() {
@@ -57,36 +51,5 @@ class Login extends Component {
 
 }
 
-export default Login;
+export default connect(null, { userLogin })(Login);
 
-{/* <form onSubmit={e => this.submit(e)} >
-                    <p className="h5 text-center mb-4">Sign in</p>
-                    <div className="grey-text">
-                        <input
-                            label="Type your email"
-                            onChange={e => this.change(e)}
-                            value={this.state.email}
-                            name="email"
-                            icon="envelope"
-                            group
-                            type="email"
-                            validate
-                            error="wrong"
-                            success="right"
-                        />
-                        <input
-                            label="Type your password"
-                            onChange={e => this.change(e)}
-                            value={this.state.password}
-                            type="password"
-                            name="password"
-                            icon="lock"
-                            group
-                            type="password"
-                            validate
-                        />
-                    </div>
-                    <div className="text-center mt-4">
-                        <button color="unique" type="submit">Login</button>
-                    </div>
-                </form> */}

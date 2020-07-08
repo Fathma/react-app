@@ -37,7 +37,6 @@ class CustomerCharts extends Component {
         var bar_date = []
         var bar_customer_number = []
 
-
         for (var date in bar_holder) {
             if (new Date(date).getMonth() === new Date().getMonth()) {
                 bar_date.push(date)

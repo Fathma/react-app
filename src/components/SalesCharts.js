@@ -6,9 +6,10 @@ class SalesCharts extends Component {
 
 
     render() {
+
+
         // manipulating data for pie chart
         var sales_holder = {};
-
         this.props.data.forEach(function (d) {
             if (sales_holder.hasOwnProperty(d.product)) {
                 sales_holder[d.product] = sales_holder[d.product] + d.order_quantity;
@@ -16,10 +17,8 @@ class SalesCharts extends Component {
                 sales_holder[d.product] = d.order_quantity;
             }
         });
-
         var sales_label_pie = []
         var sales_data_pie = []
-
         for (var product in sales_holder) {
             sales_label_pie.push(product)
             sales_data_pie.push(sales_holder[product])

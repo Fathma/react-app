@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 
 
 class Navbar_ extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     logout = () => {
         localStorage.clear()
